@@ -10,5 +10,5 @@ import {Footer} from './layout/footer/footer'
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('exo2-meriem-sofya');
+
 }

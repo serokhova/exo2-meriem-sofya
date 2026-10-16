@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ContactForm } from '../../models/contact-form';
+import { ContactService } from '../../services/contact';
 
 @Component({
   imports: [],
@@ -6,4 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './management.scss',
   templateUrl: './management.html',
 })
-export class Management {}
+export class Management {
+  private readonly contactService = inject(ContactService);
+
+  public contactForm: ContactForm | null = this.contactService.getLastContactForm();
+}

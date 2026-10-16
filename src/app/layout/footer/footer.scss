@@ -1,0 +1,12 @@
+:host {
+    display: block;
+}
+
+.footer {
+    background-color: var(--colorFooter);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

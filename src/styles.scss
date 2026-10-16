@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --headerBackgroundColor: purple;
+  --headerTextColor: white;
+  --colorFooter: rgb(254, 212, 133);
+}
+
+body {
+  margin: 0;
+}
+
+.orange { background-color: #f25022; }
+.green  { background-color: #7fba00; }
+.blue   { background-color: #00a4ef; }
+.yellow { background-color: #ffb900; }

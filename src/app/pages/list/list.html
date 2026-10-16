@@ -1,1 +1,22 @@
-<p>list works!</p>
+<div class="list-page">
+  <section class="film-list">
+    @for (film of films; track film.titleFilm) {
+      <button
+        type="button"
+        class="film-button"
+        (click)="openDetailsFilm(film.titleFilm)">
+        {{ film.titleFilm }}
+      </button>
+    }
+  </section>
+
+  @if (selectedFilm) {
+    <section class="film-details">
+      <img
+        class="film-poster"
+        [src]="selectedFilm.posterFilm"
+        [alt]="'Affiche du film ' + selectedFilm.titleFilm" />
+      <h2 class="film-title">{{ selectedFilm.titleFilm }}</h2>
+    </section>
+  }
+</div>
