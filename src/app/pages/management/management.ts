@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ContactForm } from '../../models/contact-form';
-import { ContactService } from '../../services/contact';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   imports: [],

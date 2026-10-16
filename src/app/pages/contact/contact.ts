@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ContactService } from '../../services/contact';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
