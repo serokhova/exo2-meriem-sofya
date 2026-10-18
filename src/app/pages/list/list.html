@@ -1,22 +1,26 @@
-<div class="list-page">
-  <section class="film-list">
+<section class="films">
+  <h1 class="films__title">Nos films</h1>
+
+  <div class="films__choices" role="group" aria-label="Choisir un film">
     @for (film of films; track film.titleFilm) {
       <button
         type="button"
-        class="film-button"
+        class="film-choice"
+        [class.film-choice--selected]="film === selectedFilm"
+        [attr.aria-pressed]="film === selectedFilm"
         (click)="openDetailsFilm(film.titleFilm)">
         {{ film.titleFilm }}
       </button>
     }
-  </section>
+  </div>
 
   @if (selectedFilm) {
-    <section class="film-details">
+    <article class="film-card">
       <img
-        class="film-poster"
+        class="film-card__poster"
         [src]="selectedFilm.posterFilm"
         [alt]="'Affiche du film ' + selectedFilm.titleFilm" />
-      <h2 class="film-title">{{ selectedFilm.titleFilm }}</h2>
-    </section>
+      <h2 class="film-card__title">{{ selectedFilm.titleFilm }}</h2>
+    </article>
   }
-</div>
+</section>

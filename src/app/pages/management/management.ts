@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ContactForm } from '../../models/contact-form';
 import { ContactService } from '../../services/contact.service';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-management',
   styleUrl: './management.scss',
   templateUrl: './management.html',

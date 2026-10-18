@@ -1,23 +1,57 @@
-<form [formGroup]="contactForm" (ngSubmit)="submitContactForm()">
-  <label for="name">Nom: </label>
-  <input id="name" type="text" formControlName="name">
+<form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submitContactForm()" novalidate>
+  <h1 class="contact-form__title">Nous contacter</h1>
+  <p class="contact-form__hint">Les champs marqués d'un <span class="required">*</span> sont obligatoires.</p>
 
-  <label for="surname">Prénom: </label>
-  <input id="surname" type="text" formControlName="surname">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="name" class="form-group__label">Nom <span class="required">*</span></label>
+      <input id="name" type="text" class="form-group__input" formControlName="name" autocomplete="family-name"
+        [class.form-group__input--invalid]="contactForm.controls.name.invalid && contactForm.controls.name.touched">
+      @if (contactForm.controls.name.invalid && contactForm.controls.name.touched) {
+        <p class="form-group__error">Le nom est obligatoire.</p>
+      }
+    </div>
 
-  <label for="age">Age: </label>
-  <input id="age" type="number" formControlName="age">
+    <div class="form-group">
+      <label for="surname" class="form-group__label">Prénom <span class="required">*</span></label>
+      <input id="surname" type="text" class="form-group__input" formControlName="surname" autocomplete="given-name"
+        [class.form-group__input--invalid]="contactForm.controls.surname.invalid && contactForm.controls.surname.touched">
+      @if (contactForm.controls.surname.invalid && contactForm.controls.surname.touched) {
+        <p class="form-group__error">Le prénom est obligatoire.</p>
+      }
+    </div>
 
-  <label for="checkbox">Sans email</label>
-  <input id="checkbox" type="checkbox" formControlName="checkbox">
+    <div class="form-group">
+      <label for="age" class="form-group__label">Âge</label>
+      <input id="age" type="number" min="0" class="form-group__input" formControlName="age">
+    </div>
+  </div>
 
-  @if (!contactForm.controls.checkbox.value) {
-    <label for="email">Email: </label>
-    <input id="email" type="email" formControlName="email">
-  }
+  <div class="form-group">
+    <div class="email-toggle">
+      <input id="checkbox" type="checkbox" class="email-toggle__input" formControlName="checkbox">
+      <label for="checkbox" class="email-toggle__label">Je ne souhaite pas donner d'email</label>
+    </div>
 
-  <label for="comment">Commentaire: </label>
-  <input id="comment" type="text" formControlName="comment">
+    @if (!contactForm.controls.checkbox.value) {
+      <label for="email" class="form-group__label">Email <span class="required">*</span></label>
+      <input id="email" type="email" class="form-group__input" formControlName="email" autocomplete="email"
+        placeholder="nom@exemple.fr"
+        [class.form-group__input--invalid]="contactForm.controls.email.invalid && contactForm.controls.email.touched">
+      @if (contactForm.controls.email.invalid && contactForm.controls.email.touched) {
+        <p class="form-group__error">Saisissez une adresse email valide.</p>
+      }
+    }
+  </div>
 
-  <button type="submit" [disabled]="contactForm.invalid">Envoyer</button>
+  <div class="form-group">
+    <label for="comment" class="form-group__label">Commentaire <span class="required">*</span></label>
+    <textarea id="comment" rows="3" class="form-group__input" formControlName="comment"
+      [class.form-group__input--invalid]="contactForm.controls.comment.invalid && contactForm.controls.comment.touched"></textarea>
+    @if (contactForm.controls.comment.invalid && contactForm.controls.comment.touched) {
+      <p class="form-group__error">Le commentaire est obligatoire.</p>
+    }
+  </div>
+
+  <button type="submit" class="contact-form__submit" [disabled]="contactForm.invalid">Envoyer</button>
 </form>

@@ -1,7 +1,4 @@
-.header {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  height: 50px;
-  width: 100%;
+.site-header {
+  background: var(--bs-dark);
+  box-shadow: var(--bs-box-shadow-sm);
 }

@@ -1,3 +1,14 @@
-@for (item of items; track item.path) {
-  <app-button [label]="item.label" [routerLink]="item.path"></app-button>
-}
+<nav class="main-nav" aria-label="Navigation principale">
+  <div class="main-nav__links">
+    @for (item of items; track item.path) {
+      <app-button
+        [label]="item.label"
+        [routerLink]="item.path"
+        routerLinkActive
+        #rla="routerLinkActive"
+        variant="nav"
+        [active]="rla.isActive">
+      </app-button>
+    }
+  </div>
+</nav>

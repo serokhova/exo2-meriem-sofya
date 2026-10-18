@@ -1,18 +1,11 @@
-:host {
-  flex: 1;
-  display: flex;
-}
-
 .home {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 1rem;
+  padding: 24px 16px;
 }
 
-.home-image {
-  width: 60%;
-  max-width: 500px;
+.home__image {
+  display: block;
+  width: min(500px, 100%);
   height: auto;
+  border-radius: var(--bs-border-radius-lg);
+  box-shadow: var(--bs-box-shadow);
 }

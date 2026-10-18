@@ -1,1 +1,8 @@
-<button type="button">{{ label }}</button>
+<button
+  type="button"
+  class="button"
+  [class.button--primary]="variant === 'primary'"
+  [class.button--nav]="variant === 'nav'"
+  [class.button--active]="active">
+  {{ label }}
+</button>

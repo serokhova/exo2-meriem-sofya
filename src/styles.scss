@@ -1,14 +1,7 @@
-:root {
-  --headerBackgroundColor: purple;
-  --headerTextColor: white;
-  --colorFooter: rgb(254, 212, 133);
-}
-
 body {
   margin: 0;
 }
 
-.orange { background-color: #f25022; }
-.green  { background-color: #7fba00; }
-.blue   { background-color: #00a4ef; }
-.yellow { background-color: #ffb900; }
+.app-main > :not(router-outlet) {
+  margin: auto;
+}
