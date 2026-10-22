@@ -1,0 +1,107 @@
+.contact-form {
+  width: min(560px, calc(100vw - 32px));
+  margin: 16px 0;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius-lg);
+  background: var(--bs-body-bg);
+  box-shadow: var(--bs-box-shadow-sm);
+}
+
+.contact-form__title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.contact-form__hint {
+  margin: -6px 0 0;
+  color: var(--bs-secondary-color);
+}
+
+.required {
+  color: var(--bs-danger);
+}
+
+// Nom · Prénom · Âge on one line (Âge is narrow), stacked on phones
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 100px;
+  gap: 12px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  // Lets grid columns shrink below the inputs' intrinsic width (number input overflowed)
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group__label {
+  font-weight: 500;
+}
+
+.form-group__input {
+  padding: 6px 12px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  font: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+
+  &:focus {
+    outline: none;
+    border-color: rgba(var(--bs-primary-rgb), 0.6);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+  }
+}
+
+.form-group__input--invalid,
+.form-group__input--invalid:focus {
+  border-color: var(--bs-danger);
+}
+
+.form-group__error {
+  margin: 0;
+  color: var(--bs-danger);
+  font-size: 0.875rem;
+}
+
+.email-toggle {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.email-toggle__input {
+  width: 1.1em;
+  height: 1.1em;
+  accent-color: var(--bs-primary);
+}
+
+.contact-form__submit {
+  min-height: 38px;
+  border: none;
+  border-radius: var(--bs-border-radius);
+  background: var(--bs-primary);
+  color: var(--bs-white);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    filter: brightness(0.9);
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}

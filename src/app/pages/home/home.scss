@@ -1,0 +1,11 @@
+.home {
+  padding: 24px 16px;
+}
+
+.home__image {
+  display: block;
+  width: min(500px, 100%);
+  height: auto;
+  border-radius: var(--bs-border-radius-lg);
+  box-shadow: var(--bs-box-shadow);
+}

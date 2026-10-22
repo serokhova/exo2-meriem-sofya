@@ -1,0 +1,19 @@
+.site-footer {
+  background: var(--bs-dark);
+  border-top: 1px solid var(--bs-gray-700);
+}
+
+// Copyright on the left, Contact button on the right
+.site-footer__inner {
+  max-width: 1140px;
+  height: 56px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-footer__copyright {
+  color: var(--bs-gray-500);
+}

@@ -1,0 +1,19 @@
+<div class="container text-center mt-5">
+  <h2>Gestion des soumissions</h2>
+  
+  <div *ngIf="lastContact; else notFound" class="card shadow p-4 mx-auto mt-4" style="max-width: 500px;">
+    <h4>Dernier message reçu</h4>
+    <p><strong>Prénom :</strong> {{ lastContact.prenom }}</p>
+    <p><strong>Nom :</strong> {{ lastContact.nom }}</p>
+    <p *ngIf="lastContact.age"><strong>Âge :</strong> {{ lastContact.age }}</p>
+    <p *ngIf="lastContact.email"><strong>Email :</strong> {{ lastContact.email }}</p>
+    <p><strong>Commentaire :</strong> {{ lastContact.commentaire }}</p>
+  </div>
+
+  <ng-template #notFound>
+    <div class="alert alert-danger mt-5 mx-auto" style="max-width: 400px;">
+      <h3>404 Not Found</h3>
+      <p>Aucun formulaire n'a encore été envoyé.</p>
+    </div>
+  </ng-template>
+</div>

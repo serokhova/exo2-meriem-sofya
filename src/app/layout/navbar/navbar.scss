@@ -1,0 +1,14 @@
+.main-nav {
+  max-width: 1140px;
+  height: 56px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-nav__links {
+  display: flex;
+  gap: 10rem;
+}
