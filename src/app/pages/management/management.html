@@ -1,25 +1,25 @@
-<section class="management-card">
+<section class="panel">
   @if (contactForm) {
-    <h1 class="management-card__title">Dernier formulaire envoyé</h1>
+    <h1 class="title">Dernier formulaire envoyé</h1>
     <dl class="details">
-      <dt class="details__label">Nom</dt>
-      <dd class="details__value">{{ contactForm.name }}</dd>
+      <dt class="term">Nom</dt>
+      <dd class="value">{{ contactForm.name }}</dd>
 
-      <dt class="details__label">Prénom</dt>
-      <dd class="details__value">{{ contactForm.surname }}</dd>
+      <dt class="term">Prénom</dt>
+      <dd class="value">{{ contactForm.surname }}</dd>
 
       @if (contactForm.age !== null) {
-        <dt class="details__label">Âge</dt>
-        <dd class="details__value">{{ contactForm.age }}</dd>
+        <dt class="term">Âge</dt>
+        <dd class="value">{{ contactForm.age }}</dd>
       }
 
       @if (contactForm.email) {
-        <dt class="details__label">Email</dt>
-        <dd class="details__value">{{ contactForm.email }}</dd>
+        <dt class="term">Email</dt>
+        <dd class="value">{{ contactForm.email }}</dd>
       }
 
-      <dt class="details__label">Commentaire</dt>
-      <dd class="details__value">{{ contactForm.comment }}</dd>
+      <dt class="term">Commentaire</dt>
+      <dd class="value">{{ contactForm.comment }}</dd>
     </dl>
   }
 </section>

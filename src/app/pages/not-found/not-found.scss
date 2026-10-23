@@ -3,10 +3,10 @@
   text-align: center;
 }
 
-.not-found__title {
-  font-size: 1.5rem;
+.title {
+  font-size: var(--title-size);
 }
 
-.not-found__text {
-  color: var(--bs-secondary-color);
+.text {
+  color: var(--muted);
 }

@@ -1,16 +1,16 @@
-.management-card {
-  width: min(560px, calc(100vw - 32px));
+.panel {
+  width: var(--panel-width);
   margin: 24px 0;
   padding: 24px;
-  border: 1px solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius-lg);
-  background: var(--bs-body-bg);
-  box-shadow: var(--bs-box-shadow-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
 }
 
-.management-card__title {
+.title {
   margin: 0 0 16px;
-  font-size: 1.5rem;
+  font-size: var(--title-size);
   text-align: center;
 }
 
@@ -21,33 +21,11 @@
   gap: 8px 24px;
 }
 
-.details__label {
+.term {
   font-weight: 600;
 }
 
-.details__value {
+.value {
   margin: 0;
   overflow-wrap: anywhere;
-}
-
-.empty-state {
-  text-align: center;
-}
-
-.empty-state__text {
-  color: var(--bs-secondary-color);
-}
-
-.empty-state__link {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: var(--bs-border-radius);
-  background: var(--bs-primary);
-  color: var(--bs-white);
-  font-weight: 500;
-  text-decoration: none;
-
-  &:hover {
-    filter: brightness(0.9);
-  }
 }

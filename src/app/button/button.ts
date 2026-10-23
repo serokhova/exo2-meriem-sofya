@@ -10,6 +10,6 @@ export class Button {
   @Input() label = '';
   // 'primary': filled blue action button · 'nav': outlined button for the dark navbar
   @Input() variant: 'primary' | 'nav' = 'primary';
-  // Highlights the button of the current page in the navbar
+  // highlights the button of the current page in navbar
   @Input() active = false;
 }

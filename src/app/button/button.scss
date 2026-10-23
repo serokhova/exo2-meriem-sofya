@@ -2,40 +2,40 @@
   min-height: 38px;
   padding: 0 14px;
   border: 1px solid transparent;
-  border-radius: var(--bs-border-radius);
+  border-radius: var(--radius);
   font: inherit;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
-
-  &:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.5);
-  }
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
 }
 
-.button--primary {
-  background: var(--bs-primary);
-  color: var(--bs-white);
-
-  &:hover {
-    filter: brightness(0.9);
-  }
+.button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
 
-.button--nav {
+.button-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.button-primary:hover {
+  filter: var(--hover-dim);
+}
+
+.button-nav {
   background: transparent;
   border-color: transparent;
-  color: var(--bs-white);
-
-  &:hover {
-    background: rgba(var(--bs-white-rgb), 0.1);
-  }
+  color: var(--white);
 }
 
-.button--active,
-.button--active:hover {
-  background: var(--bs-light);
-  border-color: var(--bs-light);
-  color: var(--bs-dark);
+.button-nav:hover {
+  background: rgba(var(--white-rgb), 0.1);
+}
+
+.button-active,
+.button-active:hover {
+  background: var(--light);
+  border-color: var(--light);
+  color: var(--dark);
 }

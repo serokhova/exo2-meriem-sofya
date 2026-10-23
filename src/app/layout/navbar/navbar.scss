@@ -1,6 +1,6 @@
-.main-nav {
-  max-width: 1140px;
-  height: 56px;
+.menu {
+  max-width: var(--layout-width);
+  height: var(--bar-height);
   margin: 0 auto;
   padding: 0 16px;
   display: flex;
@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-.main-nav__links {
+.links {
   display: flex;
   gap: 10rem;
 }

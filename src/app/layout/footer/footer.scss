@@ -1,12 +1,11 @@
-.site-footer {
-  background: var(--bs-dark);
-  border-top: 1px solid var(--bs-gray-700);
+.footer {
+  background: var(--dark);
+  border-top: 1px solid var(--gray-700);
 }
 
-// Copyright on the left, Contact button on the right
-.site-footer__inner {
-  max-width: 1140px;
-  height: 56px;
+.footer-inner {
+  max-width: var(--layout-width);
+  height: var(--bar-height);
   margin: 0 auto;
   padding: 0 16px;
   display: flex;
@@ -14,6 +13,6 @@
   justify-content: space-between;
 }
 
-.site-footer__copyright {
-  color: var(--bs-gray-500);
+.copyright {
+  color: var(--gray-500);
 }

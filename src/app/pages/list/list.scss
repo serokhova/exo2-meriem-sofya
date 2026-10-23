@@ -7,12 +7,12 @@
   text-align: center;
 }
 
-.films__title {
+.films-title {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: var(--title-size);
 }
 
-.films__choices {
+.choices {
   max-width: 720px;
   display: flex;
   flex-wrap: wrap;
@@ -20,44 +20,44 @@
   gap: 8px;
 }
 
-.film-choice {
+.choice {
   padding: 6px 16px;
-  border: 1px solid var(--bs-primary);
-  border-radius: var(--bs-border-radius-pill);
-  background: var(--bs-body-bg);
-  color: var(--bs-primary);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--primary);
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.15s, color 0.15s;
-
-  &:hover,
-  &.film-choice--selected {
-    background: var(--bs-primary);
-    color: var(--bs-white);
-  }
-
-  &:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.5);
-  }
+  transition: background-color var(--transition), color var(--transition);
 }
 
-.film-card {
+.choice:hover,
+.choice-active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.choice:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.film {
   overflow: hidden;
-  border: 1px solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius-lg);
-  background: var(--bs-body-bg);
-  box-shadow: var(--bs-box-shadow-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
 }
 
-.film-card__poster {
+.poster {
   display: block;
   height: min(70vh, 425px);
   aspect-ratio: 2 / 3;
   object-fit: cover;
 }
 
-.film-card__title {
+.film-title {
   margin: 0;
   padding: 10px;
   font-size: 1.1rem;
