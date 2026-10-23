@@ -18,7 +18,7 @@ export class Management {
 
   constructor() {
     if (!this.contactForm) {
-      this.router.navigate(['/' + ROUTE_PATHS.notFound]);
+      this.router.navigate(['/', ROUTE_PATHS.notFound]);
     }
   }
 }

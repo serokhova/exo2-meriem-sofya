@@ -11,5 +11,5 @@ import { Button } from '../../button/button';
 })
 export class Footer {
   contactLabel = CONTACT_LABEL;
-  contactPath = '/' + ROUTE_PATHS.contact;
+  paths = ROUTE_PATHS;
 }

@@ -43,7 +43,7 @@ export class Contact {
     this.contactService.saveContactForm(contactForm);
 
     alert(FORM_VALID_MESSAGE);
-    this.router.navigate([ROUTE_PATHS.home]);
+    this.router.navigate(['/', ROUTE_PATHS.home]);
   }
 
   private updateEmailField(hidden: boolean): void {
