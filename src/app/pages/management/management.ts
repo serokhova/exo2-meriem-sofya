@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { ContactForm } from '../../models/contact-form';
 import { ContactService } from '../../services/contact.service';
 
@@ -10,7 +10,13 @@ import { ContactService } from '../../services/contact.service';
   templateUrl: './management.html',
 })
 export class Management {
-  private readonly contactService = inject(ContactService);
+  public contactForm: ContactForm | null;
 
-  public contactForm: ContactForm | null = this.contactService.getLastContactForm();
+  constructor(private contactService: ContactService, private router: Router) {
+    this.contactForm = this.contactService.getLastContactForm();
+
+    if (!this.contactForm) {
+      this.router.navigate(['/not-found']);
+    }
+  }
 }
