@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { FilmService } from '../../services/film.service';
+import { Component, inject } from '@angular/core';
 import { Film } from '../../models/film';
+import { FilmService } from '../../services/film.service';
 
 @Component({
   imports: [],
@@ -9,13 +9,10 @@ import { Film } from '../../models/film';
   templateUrl: './list.html',
 })
 export class List {
-  films: Film[];
-  selectedFilm?: Film;
+  private readonly filmService = inject(FilmService);
 
-  constructor(private filmService: FilmService) {
-    this.films = this.filmService.getFilmList();
-    this.selectedFilm = this.films[0];
-  }
+  films: Film[] = this.filmService.getFilmList();
+  selectedFilm?: Film = this.films[0];
 
   openDetailsFilm(title: string): void {
     this.selectedFilm = this.filmService.getFilmByTitle(title);

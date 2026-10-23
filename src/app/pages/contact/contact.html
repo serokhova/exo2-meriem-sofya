@@ -6,8 +6,8 @@
     <div class="form-group">
       <label for="name" class="label">Nom <span class="required">*</span></label>
       <input id="name" type="text" class="input" formControlName="name" autocomplete="family-name"
-        [class.input-invalid]="contactForm.controls.name.invalid && contactForm.controls.name.touched">
-      @if (contactForm.controls.name.invalid && contactForm.controls.name.touched) {
+        [class.input-invalid]="isInvalid('name')">
+      @if (isInvalid('name')) {
         <p class="error">Le nom est obligatoire.</p>
       }
     </div>
@@ -15,8 +15,8 @@
     <div class="form-group">
       <label for="surname" class="label">Prénom <span class="required">*</span></label>
       <input id="surname" type="text" class="input" formControlName="surname" autocomplete="given-name"
-        [class.input-invalid]="contactForm.controls.surname.invalid && contactForm.controls.surname.touched">
-      @if (contactForm.controls.surname.invalid && contactForm.controls.surname.touched) {
+        [class.input-invalid]="isInvalid('surname')">
+      @if (isInvalid('surname')) {
         <p class="error">Le prénom est obligatoire.</p>
       }
     </div>
@@ -29,16 +29,16 @@
 
   <div class="form-group">
     <div class="toggle">
-      <input id="checkbox" type="checkbox" class="toggle-input" formControlName="checkbox">
-      <label for="checkbox">Je ne souhaite pas donner d'email</label>
+      <input id="hide-email" type="checkbox" class="toggle-input" formControlName="hideEmail">
+      <label for="hide-email">Je ne souhaite pas donner d'email</label>
     </div>
 
-    @if (!contactForm.controls.checkbox.value) {
+    @if (!contactForm.controls.hideEmail.value) {
       <label for="email" class="label">Email <span class="required">*</span></label>
       <input id="email" type="email" class="input" formControlName="email" autocomplete="email"
         placeholder="nom@exemple.fr"
-        [class.input-invalid]="contactForm.controls.email.invalid && contactForm.controls.email.touched">
-      @if (contactForm.controls.email.invalid && contactForm.controls.email.touched) {
+        [class.input-invalid]="isInvalid('email')">
+      @if (isInvalid('email')) {
         <p class="error">Saisissez une adresse email valide.</p>
       }
     }
@@ -47,8 +47,8 @@
   <div class="form-group">
     <label for="comment" class="label">Commentaire <span class="required">*</span></label>
     <textarea id="comment" rows="3" class="input" formControlName="comment"
-      [class.input-invalid]="contactForm.controls.comment.invalid && contactForm.controls.comment.touched"></textarea>
-    @if (contactForm.controls.comment.invalid && contactForm.controls.comment.touched) {
+      [class.input-invalid]="isInvalid('comment')"></textarea>
+    @if (isInvalid('comment')) {
       <p class="error">Le commentaire est obligatoire.</p>
     }
   </div>

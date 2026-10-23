@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CONTACT_LABEL, ROUTE_PATHS } from '../../app.constants';
 import { Button } from '../../button/button';
 
 @Component({
@@ -9,5 +10,6 @@ import { Button } from '../../button/button';
   templateUrl: './footer.html',
 })
 export class Footer {
-  contactLabel = 'Contact';
+  contactLabel = CONTACT_LABEL;
+  contactPath = '/' + ROUTE_PATHS.contact;
 }

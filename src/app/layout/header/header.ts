@@ -7,6 +7,4 @@ import { Navbar } from '../navbar/navbar';
   styleUrl: './header.scss',
   templateUrl: './header.html',
 })
-export class Header {
-
-}
+export class Header {}

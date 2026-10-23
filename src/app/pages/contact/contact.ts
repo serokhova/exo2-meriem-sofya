@@ -2,7 +2,10 @@ import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FORM_VALID_MESSAGE, ROUTE_PATHS } from '../../app.constants';
 import { ContactService } from '../../services/contact.service';
+
+type RequiredField = 'name' | 'surname' | 'email' | 'comment';
 
 @Component({
   selector: 'app-contact',
@@ -15,42 +18,43 @@ export class Contact {
   private readonly contactService = inject(ContactService);
   private readonly emailValidators = [Validators.required, Validators.email];
 
-  public contactForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    surname: new FormControl('', Validators.required),
+  contactForm = new FormGroup({
+    name: new FormControl('', { nonNullable: true, validators: Validators.required }),
+    surname: new FormControl('', { nonNullable: true, validators: Validators.required }),
     age: new FormControl<number | null>(null),
-    checkbox: new FormControl(false, { nonNullable: true }),
-    email: new FormControl('', this.emailValidators),
-    comment: new FormControl('', Validators.required),
+    hideEmail: new FormControl(false, { nonNullable: true }),
+    email: new FormControl('', { nonNullable: true, validators: this.emailValidators }),
+    comment: new FormControl('', { nonNullable: true, validators: Validators.required }),
   });
 
   constructor() {
-    const email = this.contactForm.controls.email;
-
-    this.contactForm.controls.checkbox.valueChanges
+    this.contactForm.controls.hideEmail.valueChanges
       .pipe(takeUntilDestroyed())
-      .subscribe((checked) => {
-        if (checked) {
-          email.clearValidators(); 
-          email.reset('');           
-        } else {
-          email.setValidators(this.emailValidators);
-        }
-        email.updateValueAndValidity();
-      });
+      .subscribe((hidden) => this.updateEmailField(hidden));
   }
 
-  public submitContactForm(): void {
-    const { name, surname, age, email, comment } = this.contactForm.getRawValue();
-    this.contactService.saveContactForm({
-      name: name ?? '',
-      surname: surname ?? '',
-      age,
-      email: email ?? '',
-      comment: comment ?? '',
-    });
+  isInvalid(field: RequiredField): boolean {
+    const control = this.contactForm.controls[field];
+    return control.invalid && control.touched;
+  }
 
-    alert('Le formulaire est valide');
-    this.router.navigate(['home']);
+  submitContactForm(): void {
+    const { hideEmail, ...contactForm } = this.contactForm.getRawValue();
+    this.contactService.saveContactForm(contactForm);
+
+    alert(FORM_VALID_MESSAGE);
+    this.router.navigate([ROUTE_PATHS.home]);
+  }
+
+  private updateEmailField(hidden: boolean): void {
+    const email = this.contactForm.controls.email;
+
+    if (hidden) {
+      email.clearValidators();
+      email.reset('');
+    } else {
+      email.setValidators(this.emailValidators);
+    }
+    email.updateValueAndValidity();
   }
 }

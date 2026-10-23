@@ -3,7 +3,7 @@
     @for (item of items; track item.path) {
       <app-button
         [label]="item.label"
-        [routerLink]="item.path"
+        [routerLink]="'/' + item.path"
         routerLinkActive
         #rla="routerLinkActive"
         variant="nav"

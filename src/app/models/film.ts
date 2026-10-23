@@ -1,4 +1,4 @@
 export interface Film {
-    titleFilm: string;
-    posterFilm: string;
+  titleFilm: string;
+  posterFilm: string;
 }

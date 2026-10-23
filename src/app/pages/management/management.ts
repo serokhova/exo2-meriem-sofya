@@ -1,22 +1,24 @@
-import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { ROUTE_PATHS } from '../../app.constants';
 import { ContactForm } from '../../models/contact-form';
 import { ContactService } from '../../services/contact.service';
 
 @Component({
-  imports: [RouterLink],
+  imports: [],
   selector: 'app-management',
   styleUrl: './management.scss',
   templateUrl: './management.html',
 })
 export class Management {
-  public contactForm: ContactForm | null;
+  private readonly contactService = inject(ContactService);
+  private readonly router = inject(Router);
 
-  constructor(private contactService: ContactService, private router: Router) {
-    this.contactForm = this.contactService.getLastContactForm();
+  contactForm: ContactForm | null = this.contactService.getLastContactForm();
 
+  constructor() {
     if (!this.contactForm) {
-      this.router.navigate(['/not-found']);
+      this.router.navigate(['/' + ROUTE_PATHS.notFound]);
     }
   }
 }

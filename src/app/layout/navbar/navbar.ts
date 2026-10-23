@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NAV_ITEMS } from '../../app.constants';
 import { Button } from '../../button/button';
+import { NavItem } from '../../models/nav-item';
 
 @Component({
   imports: [Button, RouterLink, RouterLinkActive],
@@ -9,9 +11,5 @@ import { Button } from '../../button/button';
   templateUrl: './navbar.html',
 })
 export class Navbar {
-  items = [
-    { label: 'Accueil', path: '/home' },
-    { label: 'Liste', path: '/list' },
-    { label: 'Gestion', path: '/management' },
-  ];
+  items: NavItem[] = NAV_ITEMS;
 }
