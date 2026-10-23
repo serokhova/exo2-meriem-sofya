@@ -34,3 +34,7 @@ body {
 .content > :not(router-outlet) {
   margin: auto;
 }
+
+.content > app-list {
+  margin-top: 0;
+}

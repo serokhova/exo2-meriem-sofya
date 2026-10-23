@@ -7,11 +7,11 @@ import { Management } from './pages/management/management';
 import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
-  { path: '', component: Home },
+  { path: '', redirectTo: ROUTE_PATHS.home, pathMatch: 'full' },
   { path: ROUTE_PATHS.home, component: Home },
   { path: ROUTE_PATHS.list, component: List },
   { path: ROUTE_PATHS.management, component: Management },
   { path: ROUTE_PATHS.contact, component: Contact },
   { path: ROUTE_PATHS.notFound, component: NotFound },
-  { path: '**', component: Home },
+  { path: '**', redirectTo: ROUTE_PATHS.home },
 ];
